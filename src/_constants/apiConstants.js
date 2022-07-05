@@ -1,6 +1,6 @@
 
 
 export const apiConstants = {
-    URLAPI: "http://44.202.248.27:6000",
+    URLAPI: "http://54.88.246.42:5000",
   };
   

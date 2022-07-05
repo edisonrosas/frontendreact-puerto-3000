@@ -143,7 +143,7 @@ class Navbar extends Component {
         <div className="main-navbar">
           <div className="nav-item logo">
             <Link to={"/"}><Image src={logo}/></Link>
-            <Link to='/imagen.PNG' download>Click aquí para descargar nuestra aplicación</Link>
+            <Link to='/TravelGo.apk' download>Click aquí para descargar nuestra aplicación</Link>
           </div>
           <div className="nav-item search-bar">
             <AutosuggestExample />

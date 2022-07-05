@@ -5,6 +5,8 @@ import { commentActions } from "../../actions/commentActions";
 import TextInput from "react-autocomplete-input";
 import "react-autocomplete-input/dist/bundle.css";
 import { debounce } from "throttle-debounce";
+import { apiConstants } from "../../_constants/apiConstants";
+const urlapi = apiConstants.URLAPI;
 
 function searchUser(q) {
   const requestOptions = {
@@ -19,7 +21,7 @@ function searchUser(q) {
     body: JSON.stringify({ q })
   };
 
-  return fetch("http://localhost:5000/socialtravelapp-e6988/us-central1/app/api/user/searchByUsername", requestOptions).then(res => {
+  return fetch(urlapi+"/api/user/searchByUsername", requestOptions).then(res => {
     return res;
   });
 }

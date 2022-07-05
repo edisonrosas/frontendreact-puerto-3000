@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { Button, Form, Message, Icon } from "semantic-ui-react";
+import { Button, Form,Icon, Header, Message, Segment } from 'semantic-ui-react'
+import Logo from '../assets/logo.png'
 import { userActions } from "../actions/userActions";
 import Messages from "../components/Messages";
 
@@ -88,25 +89,24 @@ class RegisterPage extends React.Component {
     const { user, submitted, retTypePasswordError } = this.state;
     return (
       <div className="form-centered">
-        <Message
-          size="large"
-          attached
-          header="social-network"
-          content="Fill out the form below to sign-up for a new account. (Do not use real credentials)"
-        />
+        <img src={Logo} />
+        <Header  style={{ color: '#fc8a10' }} as='h1' color='#fc8a10' textAlign='center'>
+          Registrate 
+        </Header>
         <Form
-          className="attached fluid segment"
           size="large"
           success={alert.type === "success" ? true : false}
           error={alert.type === "error" ? true : false}
           name="form"
           onSubmit={this.handleSubmit}
         >
+        
+        <Segment className="segment" size="large" name="form">
           <Form.Group widths="equal">
             <Form.Input
               required
-              label="First Name"
-              placeholder="First Name"
+              label="Nombre"
+              placeholder="Nombres"
               type="text"
               name="firstName"
               value={user.firstName}
@@ -116,8 +116,8 @@ class RegisterPage extends React.Component {
 
             <Form.Input
               required
-              label="Last Name"
-              placeholder="Last Name"
+              label="Apellidos"
+              placeholder="Apellidos"
               type="text"
               name="lastName"
               value={user.lastName}
@@ -129,8 +129,8 @@ class RegisterPage extends React.Component {
             <Form.Input
               required
               autoCapitalize="none"
-              label="Username"
-              placeholder="Username"
+              label="Usuario"
+              placeholder="Ingresa tu usuario"
               type="text"
               name="username"
               value={user.username}
@@ -148,10 +148,11 @@ class RegisterPage extends React.Component {
               onChange={this.handleChange}
             />
           </Form.Group>
+        
           <Form.Input
             required
-            label="Password"
-            placeholder="Password"
+            label="Contraseña"
+            placeholder="Ingresa tu contraseña"
             type="password"
             name="password"
             value={user.password}
@@ -160,8 +161,8 @@ class RegisterPage extends React.Component {
           />
           <Form.Input
             required
-            label="Re-type password"
-            placeholder="Re-type password"
+            label="Ingresa nuevamente tu contraseña"
+            placeholder="Ingresa tu contraseña"
             type="password"
             name="retypepassword"
             value={user.retypepassword}
@@ -173,10 +174,11 @@ class RegisterPage extends React.Component {
           />
           <Button
             size="large"
-            content="Sign up"
+            content="Registrate"
             icon="signup"
+            color="orange"
             fluid
-            primary
+            
             disabled={
               !retTypePasswordError &&
               user.retypepassword !== "" &&
@@ -190,13 +192,14 @@ class RegisterPage extends React.Component {
             }
             loading={registering ? true : false}
           />
-
+        
           {alert.type ? <Messages alert={alert} /> : null}
+        </Segment>
         </Form>
-        <Message size="large" attached="bottom" warning>
+        
+        <Message size="large" attached="bottom">
           <Icon name="help" />
-          Already signed up?&nbsp;<Link to={"/login"}>Login here</Link>
-          &nbsp;instead.
+          Ya estas registrado?&nbsp;<Link to={"/login"}>Inicia sesión aqui</Link>
         </Message>
       </div>
     );

@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { history } from "../_helpers/history";
 import { throttle } from "throttle-debounce";
 import { connect } from "react-redux";
+import { apiConstants } from "../_constants/apiConstants";
 
-
-const urlapi = "http://localhost:5000/socialtravelapp-e6988/us-central1/app";
+const urlapi = apiConstants.URLAPI;
 
 
 function searchUser(q) {

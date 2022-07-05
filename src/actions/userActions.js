@@ -238,9 +238,9 @@ function getUserData(queryParams) {
       }
     ).then((res) => {
         console.log(res)
-        if ( res === undefined){
-          dispatch(failure("ERROR"));
-         // history.push("/login");
+        if ( res === undefined || res.error){
+          dispatch(failure("Error"));
+          //history.push("/login");
            
         }else{
           if(res.message === "Sesion invalida"){
@@ -257,7 +257,7 @@ function getUserData(queryParams) {
             dispatch(alertActions.error("Error "));
          //   history.push("/login");
           
-          }//else{
+          }
         
               //err obtener datos con token vencido
             
@@ -269,10 +269,9 @@ function getUserData(queryParams) {
               // setTimeout(()=>{
               //console.log(res.user)
             //}, 20);
-          //}
-        }
+          }
+        
     });
-    
     
     /*.then(
       (res) => 

@@ -9,6 +9,7 @@ import { userActions } from "../actions/userActions";
 import { NotificationPopup } from "./NotificationPopup";
 import { AutosuggestExample } from "../components/Autosuggestion";
 import { AnsweringModal } from "../MessengerPage/AnsweringModal";
+import logo from '../assets/logo_principal.png'
 
 function trigger(image, name) {
   return (
@@ -141,7 +142,8 @@ class Navbar extends Component {
       return (
         <div className="main-navbar">
           <div className="nav-item logo">
-            <Link to={"/"}>TravelGo</Link>
+            <Link to={"/"}><Image src={logo}/></Link>
+            <Link to='/imagen.PNG' download>Click aquí para descargar nuestra aplicación</Link>
           </div>
           <div className="nav-item search-bar">
             <AutosuggestExample />

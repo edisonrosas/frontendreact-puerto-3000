@@ -1,8 +1,9 @@
+import { apiConstants } from "../_constants/apiConstants";
 export const notificatonService = {
   readNotifications,
   fetchNotifications
 };
-const urlapi = "http://localhost:5000/socialtravelapp-e6988/us-central1/app";
+const urlapi = apiConstants.URLAPI;
 function logout() {
   // remove user from local storage to log user out
   localStorage.removeItem("user");

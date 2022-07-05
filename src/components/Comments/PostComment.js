@@ -15,6 +15,8 @@ import hashtag from "linkifyjs/plugins/hashtag";
 import mention from "linkifyjs/plugins/mention";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import { apiConstants } from "../../_constants/apiConstants";
+const urlapi = apiConstants.URLAPI;
 
 dayjs.extend(relativeTime);
 
@@ -34,7 +36,7 @@ function searchUser(q) {
     body: JSON.stringify({ q })
   };
 
-  return fetch("http://localhost:5000/socialtravelapp-e6988/us-central1/app/api/user/searchByUsername", requestOptions).then(res => {
+  return fetch(urlapi+"/api/user/searchByUsername", requestOptions).then(res => {
     return res;
   });
 }

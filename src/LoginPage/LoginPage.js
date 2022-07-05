@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { Button, Form, Message, Icon } from "semantic-ui-react";
+import { Button, Form,Icon, Grid, Header, Message, Segment } from 'semantic-ui-react'
 import { userActions } from "../actions/userActions";
 import Messages from "../components/Messages";
-
+import Logo from '../assets/logo.png'
+import portada from '../assets/portada.png'
 class LoginPage extends React.Component {
   constructor(props) {
     super(props);
@@ -79,83 +80,89 @@ class LoginPage extends React.Component {
       forgotPasswordForm,
     } = this.state;
     return (
-      <div className="form-centered">
-        <Message
-          size="large"
-          attached
-          header="social-network"
-          content="Fill out the form below to log-in"
-        />
+      <div class="ui two column grid">
+      <div class = "column">
+      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+      <Grid.Column style={{ maxWidth: 450 }}>
+        <img src={Logo} />
+
+        <Header  style={{ color: '#fc8a10' }} as='h1' color='#fc8a10' textAlign='center'>
+          Ingresa a tu cuenta
+        </Header>
         <Form
-          className="attached fluid segment"
           size="large"
           name="form"
           success={alert.type === "success" ? true : false}
           error={alert.type === "error" ? true : false}
-          onSubmit={this.handleSubmit}
-        >
-          <Form.Group widths="equal">
-            <Form.Input
-              autoCapitalize="none"
-              label="Email"
-              placeholder="Email or username"
-              type="text"
-              name="email"
-              value={email}
-              error={submitted && !email ? true : false}
-              onChange={this.handleChange}
-            />
+          onSubmit={this.handleSubmit}>
+            <Segment className="segment" size="large" name="form">
+                <Form.Input
+                      fluid
+                      icon= 'user'
+                      iconPosition= 'left'
+                      autoCapitalize="none"
+                      placeholder="Ingresa tu email o usuario"
+                      type="text"
+                      name="email"
+                      value={email}
+                      error={submitted && !email ? true : false}
+                      onChange={this.handleChange}
+                />
 
-            <Form.Input
-              label="Password"
-              placeholder="Password"
-              type="password"
-              name="password"
-              value={password}
-              error={submitted && !password ? true : false}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Button
-            size="large"
-            fluid
-            content="Login"
-            primary
-            disabled={email !== "" && password !== "" ? false : true}
-            loading={loggingIn ? true : false}
-          />
+                <Form.Input
+                      fluid
+                      icon='lock'
+                      iconPosition='left'
+                      placeholder='Ingresa tu contraseña'
+                      type="password"
+                      name="password"
+                      value={password}
+                      error={submitted && !password ? true : false}
+                      onChange={this.handleChange}
+                    />
+               <Button
+                    size="large"
+                    fluid
+                    content="Ingresar"
+                    color="orange"
+                    disabled={email !== "" && password !== "" ? false : true}
+                    loading={loggingIn ? true : false}
+                  />
 
-          {alert.type ? <Messages alert={alert} /> : null}
+                  {alert.type ? 
+                <Messages alert={alert} /> : null}
+            </Segment>
+          
         </Form>
-        <Message size="large" attached="bottom" warning>
+        <Message size="large" attached="bottom" >
           <Icon name="help" />
-          Don't have an account?&nbsp;
-          <Link to={"/register"}>Create one now</Link>
+          No tienes una cuenta?&nbsp;
+          <Link to={"/register"}>Registrate</Link>
           <br></br>
           <Icon name="help" />
-          Forgot password?&nbsp;
+          Olvidaste tu contraseña?&nbsp;
           <span
             onClick={this.toggleForgotPasswordForm}
             style={{
               textDecoration: "underline",
-              fontWeight: "900",
+              fontWeight: "700",
               cursor: "pointer",
             }}
           >
-            reset password
+            Reestablecer tu contraseña
           </span>
           <br></br>
           <Icon name="envelope" />
-          Resend verification email.&nbsp;
+          Reenviar correo electrónico de verificación.&nbsp;
           <span
             onClick={this.toggleEmailVerification}
             style={{
               textDecoration: "underline",
-              fontWeight: "900",
+              fontWeight: "700",
               cursor: "pointer",
             }}
           >
-            resend
+            Reenviar
           </span>
         </Message>
         {showForm ? (
@@ -170,8 +177,9 @@ class LoginPage extends React.Component {
               />
             </Form.Field>
 
-            <Button fluid type="submit" onClick={this.resendEmailVerification}>
-              Resend
+            <Button fluid type="submit" color="orange"
+              onClick={this.resendEmailVerification}>
+              Enviar
             </Button>
           </Form>
         ) : null}
@@ -187,13 +195,22 @@ class LoginPage extends React.Component {
                 onChange={this.handleChange}
               />
             </Form.Field>
-            <Button fluid type="submit" onClick={this.forgotPasswordEmail}>
-              Send
+            <Button fluid type="submit" color="orange"
+                onClick={this.forgotPasswordEmail}>
+              Enviar
             </Button>
           </Form>
         ) : null}
-
+      </Grid.Column>
+      </Grid>
       </div>
+
+      <div class = "column">
+      <Grid.Column style={{ maxWidth: 1000 , maxHeight: 1000}}>
+            <img src={portada} />
+      </Grid.Column>
+      </div>
+    </div> 
     );
   }
 }

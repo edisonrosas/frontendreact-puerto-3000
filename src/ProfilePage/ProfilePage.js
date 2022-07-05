@@ -44,7 +44,7 @@ const linkifyOptions = {
 
 class ProfilePage extends Component {
   componentDidMount = () => {
-    document.title = "Perfil| TravelGo";
+    document.title = "Perfil | TravelGo";
   };
 
   fetchData = () => {

@@ -1,3 +1,4 @@
+import { apiConstants } from "../_constants/apiConstants";
 export const userService = {
   login,
   logout,
@@ -16,11 +17,11 @@ export const userService = {
 };
 
 
-const urlapi = "http://localhost:5000/socialtravelapp-e6988/us-central1/app";
+//const urlapi = "http://localhost:5000/socialtravelapp-e6988/us-central1/app";
+
+const urlapi = apiConstants.URLAPI;
 
 function login(email, password) {
-
-
 
   const requestOptions = {
     mode: "cors",
@@ -30,7 +31,7 @@ function login(email, password) {
     'Access-Control-Allow-Methods': 'POST'},
     body: JSON.stringify({ email, password }),
   };
-
+  console.log(urlapi)
   return fetch(urlapi+"/api/user/login",requestOptions).then((res) => res.json())
       .catch(
         error => {
@@ -46,7 +47,7 @@ function login(email, password) {
         console.log(res.user === "");
         console.log(res.message === "");*/
         if(res.user  !== undefined){
-          console.log("go")
+          console.log("se inidió")
           localStorage.setItem("user", JSON.stringify({ token: res.user.token }));
         }
         return res;

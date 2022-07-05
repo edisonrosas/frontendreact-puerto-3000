@@ -1,6 +1,8 @@
+import { apiConstants } from "../_constants/apiConstants";
 const fs = require('fs');
 const AWS = require('aws-sdk');
-const uuid = require('uuid')
+const uuid = require('uuid');
+
 export const postService = {
   fetchPosts,
   getPostsByHashtag,
@@ -13,11 +15,11 @@ export const postService = {
   getPost,
   logout
 };
-const urlapi = "http://localhost:5000/socialtravelapp-e6988/us-central1/app";
+const urlapi = apiConstants.URLAPI;
 
 function logout() {
   // remove user from local storage to log user out
-  //localStorage.removeItem("user");
+  localStorage.removeItem("user");
 }
 
 function fetchPosts(queryParams) {
@@ -340,7 +342,7 @@ function handleResponse(response) {
     if (!response.ok) {
       if (response.status === 401) {
         console.log(response);
-        // auto logout if 401 response returned from api
+        // auto logout 
         logout();
         window.location.reload(true);
       }

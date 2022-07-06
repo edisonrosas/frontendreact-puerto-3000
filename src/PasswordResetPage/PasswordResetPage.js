@@ -85,7 +85,7 @@ class PasswordResetPage extends Component {
          
           <div className="nav-item ">
             <div class="btn btn-primary">
-            <a href="http://localhost:3000/login">Iniciar Sesion</a>
+            <a href="https://travelgo-vert.vercel.app/login">Iniciar Sesion</a>
             </div>
           </div>
          

@@ -188,8 +188,14 @@ class PostForm extends PureComponent {
                     multiple={false}
                     onChange={this.handleFileSelect}
                   />
+                  <div> _ 
+
+                    
+                  </div>
+                   <label className="h4">Una vez seleccionada, click en su imagen y selecciona el área a publicar para formar un cuadrado e ir a siguiente</label>
+          
                 </label>
-              </div>
+                   </div>
               <div>
                 <Button onClick={this.changeAspect} name="1:1" size="massive">
                   1:1
@@ -223,6 +229,8 @@ class PostForm extends PureComponent {
             <label className="ui massive fluid icon button">
               <i className="file icon" />
               Seleccionar imagen
+
+
               <input
                 style={{ display: "none" }}
                 ref={this.fileInputRef}

@@ -93,6 +93,9 @@ class RegisterPage extends React.Component {
         <Header  style={{ color: '#fc8a10' }} as='h1' color='#fc8a10' textAlign='center'>
           Registrate 
         </Header>
+        <div>
+        Sin mayusculas,sin tildes ni caracteres especiales
+          </div>
         <Form
           size="large"
           success={alert.type === "success" ? true : false}

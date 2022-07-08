@@ -88,7 +88,22 @@ class LoginPage extends React.Component {
 
         <Header  style={{ color: '#fc8a10' }} as='h1' color='#fc8a10' textAlign='center'>
           Ingresa a tu cuenta
+
         </Header>
+        En caso no validen tus datos el registrarte (sin mayusculas,sin tildes ni caracteres especiales)
+          usa estas credenciales:
+          <div>
+_
+
+          </div>
+          <div>
+          user: correologin@gmail.com
+
+          </div>
+          <div>
+          password: 12345678
+          </div>
+
         <Form
           size="large"
           name="form"
